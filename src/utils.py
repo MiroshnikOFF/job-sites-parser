@@ -10,6 +10,8 @@ def get_vacancies_by_api() -> None:
     """
     keyword = input("Введите название профессии или ключевое слово для поиска. Если не важно, то нажмите ENTER: ")
     print("Подождите, идет формирование списка вакансий")
+    # По умолчанию установлены максимальные значения количества вакансий на странице ('per_page' и 'count')
+    # и количества страниц для запроса ('page')
     params_hh = {'per_page': 100, 'page': 19, 'text': keyword}
     params_sj = {'count': 100, 'page': 5, 'not_archive': True, 'keyword': keyword}
     vac_hh = HeadHunter(params_hh)
