@@ -41,19 +41,20 @@ def get_vacancies_from_file() -> list:
     return hh_init_list + sj_init_list
 
 
-def creation_salary_dict() -> dict:
+def creation_salary_dict(vacancies) -> dict:
     """
     Запрашивает у пользователя суммы зарплаты от и до, и формирует словарь с этими параметрами.
     По умолчанию параметры None
     :return: словарь с параметрами зарплаты от и до
     """
     salary = {'from': None, 'to': None}
-    request = 1
+    request = True
     while True:
         salary_from = input("Введите сумму зарплаты от, если не важно, нажмите ENTER,\n"
                             "для возврата к предыдущему меню введите EXIT:  ")
         if salary_from.lower() == 'exit':
-            request = 0
+            request = False
+            Vacancy.save_to_file(vacancies)
             break
         elif salary_from.isdigit():
             salary['from'] = int(salary_from)
@@ -63,7 +64,7 @@ def creation_salary_dict() -> dict:
             break
         else:
             print("Сумма зарплаты должна быть в цифрах!")
-    if request == 1:
+    if request:
         while True:
             salary_to = input("Введите сумму зарплаты до, если не важно, нажмите ENTER,\n"
                               "для возврата к предыдущему меню введите EXIT:  ")
