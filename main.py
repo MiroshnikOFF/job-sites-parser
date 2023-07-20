@@ -51,4 +51,4 @@ while True:
             printing_vacancies(vacancies)
         elif request == 8:
             Vacancy.clear_file()
-            print("\nФайл очищен")
+            print("\nФайл очищен\n###########")

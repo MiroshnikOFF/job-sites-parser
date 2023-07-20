@@ -2,19 +2,26 @@ from abc import ABC, abstractmethod
 
 
 class Saver(ABC):
+    """Абстрактный класс для работы с файлами"""
 
-    @classmethod
     @abstractmethod
-    def save_to_file(cls, vacancies):
+    def save_to_file(self, vacancies):
+        """
+        Обязывает дочерние классы реализовать метод сохранения данных в файл
+        """
         pass
 
-    @classmethod
     @abstractmethod
-    def read_from_file(cls):
+    def read_from_file(self):
+        """
+        Обязывает дочерние классы реализовать метод получения данных из файла
+        """
         pass
 
-    @classmethod
     @abstractmethod
-    def clear_file(cls):
+    def clear_file(self):
+        """
+        Обязывает дочерние классы реализовать метод удаления данных из файла
+        """
         pass
 
