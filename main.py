@@ -32,7 +32,7 @@ while True:
     else:
         request = int(user_answer)
         if request == 1:
-            salary = creation_salary_dict()
+            salary = creation_salary_dict(vacancies)
             get_vacancies_by_salary(salary)
             printing_vacancies(get_vacancies_from_file())
         elif request == 2:
