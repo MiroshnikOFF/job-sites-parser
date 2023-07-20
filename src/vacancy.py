@@ -7,17 +7,57 @@ class Vacancy(JsonSaver):
     all = []
 
     def __init__(self, all_data, resource, name, city, url, date_time, salary_from, salary_to, currency, requirement):
-        self.all_data = all_data
-        self.resource = resource
-        self.name = name
-        self.city = city
-        self.url = url
-        self.date_time = date_time
-        self.salary_from = salary_from
-        self.salary_to = salary_to
-        self.currency = currency
-        self.requirement = requirement
+        self.__all_data = all_data
+        self.__resource = resource
+        self.__name = name
+        self.__city = city
+        self.__url = url
+        self.__date_time = date_time
+        self.__salary_from = salary_from
+        self.__salary_to = salary_to
+        self.__currency = currency
+        self.__requirement = requirement
         Vacancy.all.append(self)
+
+    @property
+    def all_data(self):
+        return self.__all_data
+
+    @property
+    def resource(self):
+        return self.__resource
+
+    @property
+    def name(self):
+        return self.__name
+
+    @property
+    def city(self):
+        return self.__city
+
+    @property
+    def url(self):
+        return self.__url
+
+    @property
+    def date_time(self):
+        return self.__date_time
+
+    @property
+    def salary_from(self):
+        return self.__salary_from
+
+    @property
+    def salary_to(self):
+        return self.__salary_to
+
+    @property
+    def currency(self):
+        return self.__currency
+
+    @property
+    def requirement(self):
+        return self.__requirement
 
     def creation_salary_string(self) -> str:
         """
