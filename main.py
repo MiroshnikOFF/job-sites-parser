@@ -36,13 +36,17 @@ while True:
             get_vacancies_by_salary(salary)
             printing_vacancies(get_vacancies_from_file())
         elif request == 2:
-            printing_vacancies(Vacancy.sort_by_salary(vacancies)['ascending'])
+            Vacancy.save_to_file(Vacancy.sort_by_salary(vacancies)['ascending'])
+            printing_vacancies(get_vacancies_from_file())
         elif request == 3:
-            printing_vacancies(Vacancy.sort_by_salary(vacancies)['descending'])
+            Vacancy.save_to_file(Vacancy.sort_by_salary(vacancies)['descending'])
+            printing_vacancies(get_vacancies_from_file())
         elif request == 4:
-            printing_vacancies(Vacancy.sort_by_date(vacancies)['descending'])
+            Vacancy.save_to_file(Vacancy.sort_by_date(vacancies)['descending'])
+            printing_vacancies(get_vacancies_from_file())
         elif request == 5:
-            printing_vacancies(Vacancy.sort_by_date(vacancies)['ascending'])
+            Vacancy.save_to_file(Vacancy.sort_by_date(vacancies)['ascending'])
+            printing_vacancies(get_vacancies_from_file())
         elif request == 6:
             Vacancy.save_to_file(vacancies)
             printing_vacancies(vacancies)
