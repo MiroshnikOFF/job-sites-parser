@@ -59,6 +59,12 @@ class Vacancy(JsonSaver):
     def requirement(self):
         return self.__requirement
 
+    def __ge__(self, other):
+        return self.salary_from >= other
+
+    def __le__(self, other):
+        return self.salary_to <= other
+
     def creation_salary_string(self) -> str:
         """
         Создает корректную строку заработной платы исходя из того указана она или нет
@@ -98,7 +104,7 @@ class Vacancy(JsonSaver):
         vacancies_by_salary_from = []
         for vacancy in vacancies:
             if vacancy.salary_from:
-                if vacancy.salary_from >= salary_from:
+                if vacancy >= salary_from:
                     vacancies_by_salary_from.append(vacancy)
         return vacancies_by_salary_from
 
@@ -113,7 +119,7 @@ class Vacancy(JsonSaver):
         vacancies_by_salary_to = []
         for vacancy in vacancies:
             if vacancy.salary_to:
-                if vacancy.salary_to <= salary_to:
+                if vacancy <= salary_to:
                     vacancies_by_salary_to.append(vacancy)
         return vacancies_by_salary_to
 
